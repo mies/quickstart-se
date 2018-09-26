@@ -14,8 +14,9 @@ build:
   steps:
     # https://github.com/wercker/step-maven
     - wercker/maven:
-      goals: install
-      version: 4.0.0
-    - wercker/maven:
       goals: clean install
-      version: 4.0.0
+      version: 3.5.4
+
+    - wercker/maven:
+      goals: package
+      version: 3.5.4
