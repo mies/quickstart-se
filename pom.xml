@@ -186,5 +186,9 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.helidon.webserver</groupId>
+            <artifactId>helidon-webserver-prometheus</artifactId>
+        </dependency>
     </dependencies>
 </project>

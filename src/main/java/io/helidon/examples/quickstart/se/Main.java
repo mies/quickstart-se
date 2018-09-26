@@ -24,6 +24,7 @@ import io.helidon.webserver.Routing;
 import io.helidon.webserver.ServerConfiguration;
 import io.helidon.webserver.WebServer;
 import io.helidon.webserver.json.JsonSupport;
+import io.helidon.webserver.prometheus.PrometheusSupport;
 
 /**
  * Simple Hello World rest application.
@@ -42,8 +43,10 @@ public final class Main {
      */
     private static Routing createRouting() {
         return Routing.builder()
+                .register(PrometheusSupport.create())
                 .register(JsonSupport.get())
                 .register("/greet", new GreetService())
+                .register("/myservice", new MyService())
                 .build();
     }
 

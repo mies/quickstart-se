@@ -62,7 +62,21 @@ public class GreetService implements Service {
         rules
             .get("/", this::getDefaultMessage)
             .get("/{name}", this::getMessage)
-            .put("/greeting/{greeting}", this::updateGreeting);
+            .put("/greeting/{greeting}", this::updateGreeting)
+            .get("/health", this::getHealth);
+    }
+
+    /**
+     * Return an OK health status.
+     * @param request the server request
+     * @param response the server response
+     */
+    private void getHealth(final ServerRequest request,
+                           final ServerResponse response) {
+        JsonObject returnObject = Json.createObjectBuilder()
+                .add("health", "ok")
+                .build();
+            response.send(returnObject);
     }
 
     /**
